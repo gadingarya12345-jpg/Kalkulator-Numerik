@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Metode Numerik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,7 +43,29 @@
                     </div>
                 </div>
                 
+                <div class="method-info">
+                    <h3><i class="fas fa-info-circle"></i> Rumus & Metode</h3>
+                    <div class="formula-box">
+                        <p><strong>Langkah-langkah Gauss-Jordan:</strong></p>
+                        <ol>
+                            <li>Bentuk matriks augmented [A|b]</li>
+                            <li>Ubah menjadi bentuk eselon baris tereduksi</li>
+                            <li>Operasi baris elementer:
+                                <ul>
+                                    <li>Menukar baris</li>
+                                    <li>Mengalikan baris dengan konstanta</li>
+                                    <li>Menambahkan kelipatan baris ke baris lain</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p class="math-formula" id="gaussFormula">
+                            Ax = b → [A|b] → [I|x]
+                        </p>
+                    </div>
+                </div>
+                
                 <p><strong>Format input:</strong> Masukkan matriks augmented, setiap baris dipisahkan dengan baris baru, setiap elemen dipisahkan dengan spasi.</p>
+                <p><strong>Contoh:</strong> Untuk sistem persamaan 2x + y = 5 dan 4x + 4y = 6, input: <code>2 1 5</code> dan <code>4 4 6</code></p>
                 
                 <textarea id="matrixInput" rows="5" placeholder="Contoh:
 2 1 5
@@ -56,6 +79,9 @@
                     <button class="btn-secondary" onclick="clearInput('matrixInput', 'resultGauss')">
                         <i class="fas fa-broom"></i> Bersihkan
                     </button>
+                    <button class="btn-secondary" onclick="showExample('gauss')">
+                        <i class="fas fa-lightbulb"></i> Contoh
+                    </button>
                 </div>
                 
                 <div class="result-container">
@@ -63,6 +89,7 @@
                     <div id="resultGauss" class="result-box">
                         Hasil akan ditampilkan di sini...
                     </div>
+                    <div id="stepsGauss" class="steps-box"></div>
                 </div>
             </div>
 
@@ -78,7 +105,29 @@
                     </div>
                 </div>
                 
+                <div class="method-info">
+                    <h3><i class="fas fa-info-circle"></i> Rumus & Metode</h3>
+                    <div class="formula-box">
+                        <p><strong>Rumus Regresi Linear:</strong></p>
+                        <p class="math-formula">
+                            y = a + bx
+                        </p>
+                        <p>Dimana:</p>
+                        <p class="math-formula">
+                            b = (nΣxy - ΣxΣy) / (nΣx² - (Σx)²)
+                        </p>
+                        <p class="math-formula">
+                            a = ȳ - bx̄
+                        </p>
+                        <p>Koefisien determinasi:</p>
+                        <p class="math-formula">
+                            R² = 1 - (Σ(yᵢ - ŷᵢ)² / Σ(yᵢ - ȳ)²)
+                        </p>
+                    </div>
+                </div>
+                
                 <p><strong>Format input:</strong> Masukkan pasangan data (x y), setiap pasangan dipisahkan dengan baris baru.</p>
+                <p><strong>Contoh:</strong> <code>1 2</code>, <code>2 4</code>, <code>3 5</code>, <code>4 4</code>, <code>5 6</code></p>
                 
                 <textarea id="regresiInput" rows="5" placeholder="Contoh:
 1 2
@@ -98,6 +147,9 @@
                     <button class="btn-secondary" onclick="clearInput('regresiInput', 'resultRegresi')">
                         <i class="fas fa-broom"></i> Bersihkan
                     </button>
+                    <button class="btn-secondary" onclick="showExample('regresi')">
+                        <i class="fas fa-lightbulb"></i> Contoh
+                    </button>
                 </div>
                 
                 <div class="result-container">
@@ -105,6 +157,7 @@
                     <div id="resultRegresi" class="result-box">
                         Hasil akan ditampilkan di sini...
                     </div>
+                    <div id="stepsRegresi" class="steps-box"></div>
                 </div>
             </div>
         </main>
@@ -115,6 +168,7 @@
         </footer>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
