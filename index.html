@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Metode Numerik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> Kalkulator Metode Numerik</h1>
+            <p class="subtitle">Alat komputasi numerik untuk menyelesaikan sistem persamaan linear (metode Gauss-Jordan) dan analisis regresi linear</p>
+            
+            <div class="profile-info">
+                <div class="profile-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Nama: Gading Arya Mukti</span>
+                </div>
+                <div class="profile-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>NPM: 202410715293</span>
+                </div>
+                <div class="profile-item">
+                    <i class="fas fa-code"></i>
+                    <span>Metode Numerik</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- ================= GAUSS JORDAN ================= -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <div>
+                        <h2 class="card-title">Kalkulator Gauss-Jordan</h2>
+                        <p class="card-description">Selesaikan sistem persamaan linear dengan metode eliminasi Gauss-Jordan</p>
+                    </div>
+                </div>
+                
+                <p><strong>Format input:</strong> Masukkan matriks augmented, setiap baris dipisahkan dengan baris baru, setiap elemen dipisahkan dengan spasi.</p>
+                
+                <textarea id="matrixInput" rows="5" placeholder="Contoh:
+2 1 5
+4 4 6">2 1 5
+4 4 6</textarea>
+                
+                <div class="button-container">
+                    <button class="btn-primary" onclick="gaussJordan()">
+                        <i class="fas fa-play-circle"></i> Hitung Gauss-Jordan
+                    </button>
+                    <button class="btn-secondary" onclick="clearInput('matrixInput', 'resultGauss')">
+                        <i class="fas fa-broom"></i> Bersihkan
+                    </button>
+                </div>
+                
+                <div class="result-container">
+                    <h3 class="result-title"><i class="fas fa-poll"></i> Hasil Perhitungan</h3>
+                    <div id="resultGauss" class="result-box">
+                        Hasil akan ditampilkan di sini...
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= REGRESI LINEAR ================= -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h2 class="card-title">Kalkulator Regresi Linear</h2>
+                        <p class="card-description">Analisis regresi linear untuk menemukan hubungan linear antara variabel x dan y</p>
+                    </div>
+                </div>
+                
+                <p><strong>Format input:</strong> Masukkan pasangan data (x y), setiap pasangan dipisahkan dengan baris baru.</p>
+                
+                <textarea id="regresiInput" rows="5" placeholder="Contoh:
+1 2
+2 4
+3 5
+4 4
+5 6">1 2
+2 4
+3 5
+4 4
+5 6</textarea>
+                
+                <div class="button-container">
+                    <button class="btn-primary" onclick="regresiLinear()">
+                        <i class="fas fa-chart-bar"></i> Hitung Regresi Linear
+                    </button>
+                    <button class="btn-secondary" onclick="clearInput('regresiInput', 'resultRegresi')">
+                        <i class="fas fa-broom"></i> Bersihkan
+                    </button>
+                </div>
+                
+                <div class="result-container">
+                    <h3 class="result-title"><i class="fas fa-poll"></i> Hasil Perhitungan</h3>
+                    <div id="resultRegresi" class="result-box">
+                        Hasil akan ditampilkan di sini...
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p class="footer-text">Dibuat oleh <strong>Gading Arya Mukti</strong> (NPM: 202410715293) sebagai alat bantu komputasi metode numerik</p>
+            <p>© 2023 Kalkulator Metode Numerik. Semua hak cipta dilindungi.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
